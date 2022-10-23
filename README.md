@@ -59,4 +59,4 @@ Converting a newer version of the data.json file to a minimalistic text file, le
 
 <code>pretty-tree.pl >my-new-min-tree.txt</code>
     
-- The new minimalistic text tree should be in my-new-min-tree.txt
+- The new minimalistic text tree should then appear as a new content of my-new-min-tree.txt
