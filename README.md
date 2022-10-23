@@ -48,3 +48,13 @@ An example of a part of the output:
     [ B.1.1.529.2.75.3.4.1.1.1 (CH.1),
     [ B.1.1.529.2.75.3.4.1.1.1.1 (CH.1.1),
     ]
+
+---
+
+Converting a newer version of the data.json file (for those who aren't familiar with command line):
+
+- Perl has to be installed on your system.
+- Keep pretty-tree.pl in some folder, put the newer data.json in the same folder
+- Open the command prompt in that folder and type
+    pretty-tree.pl >my-new-min-tree.txt
+- The new minimalistic text tree should be in my-new-min-tree.txt
