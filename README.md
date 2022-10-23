@@ -51,10 +51,12 @@ An example of a part of the output:
 
 ---
 
-Converting a newer version of the data.json file (for those who aren't familiar with command line):
+Converting a newer version of the data.json file to a minimalistic text file, let's say called my-new-min-tree.txt (for those who aren't too familiar with command line or installing Perl please refer to other tutorials):
 
 - Perl has to be installed on your system.
 - Keep pretty-tree.pl in some folder, put the newer data.json in the same folder
 - Open the command prompt in that folder and type
-    pretty-tree.pl >my-new-min-tree.txt
+
+<code>pretty-tree.pl >my-new-min-tree.txt</code>
+    
 - The new minimalistic text tree should be in my-new-min-tree.txt
