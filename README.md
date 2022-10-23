@@ -5,6 +5,8 @@ https://github.com/MDU-PHL/pango-watch/blob/main/tree/data.json
 
 The output allows one to have a small text file to do a text search for some existing subvariant or alias.
 
+---
+
 Searching a subvariant, if the searched text is found, that subvariant exists, and its context is seen.
 
 Searching an alias, if the searched alias is found, that alias exists, and its context is seen.
@@ -14,10 +16,12 @@ are in the same line, the gaps start a new line.
 
 Every list of children starts a new line.
 
--
+---
 
 For those who always wanted to know the answers to these questions by a simple search through
 a minimalistic text file with that information.
+
+----
 
 An example of a part of the output:
 
