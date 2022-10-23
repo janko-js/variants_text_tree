@@ -1,13 +1,20 @@
 # variants_text_tree
 
-A small Perl script to produce a minimalistic text tree of SARS-CoV-2 variants from a JSON file as seen in 
+A small Perl script to produce a minimalistic text tree of SARS-CoV-2 subvariants from a JSON file as seen in 
 https://github.com/MDU-PHL/pango-watch/blob/main/tree/data.json
 
-The output allows one to have a small text file to do a text search for some existing variant or alias.
+The output allows one to have a small text file to do a text search for some existing subvariant or alias.
 
-Searching a variant, if the searched text is found, that variant exists, and its context is seen.
+Searching a subvariant, if the searched text is found, that subvariant exists, and its context is seen.
 
 Searching an alias, if the searched alias is found, that alias exists, and its context is seen.
+
+The childless subvariants which have the sequential names (every last number is one bigger than the previous)
+are in the same line, the gaps start a new line.
+
+Every list of children starts a new line.
+
+-
 
 For those who always wanted to know the answers to these questions by a simple search through
 a minimalistic text file with that information.
