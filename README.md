@@ -51,7 +51,7 @@ An example of a part of the output:
 
 ---
 
-If the automatic works as intendend, the latest/min-variant-tree.txt should be automatically updated once per day.
+If the automatic works as intendend here on Github the latest/min-variant-tree.txt should be automatically updated once per day.
 
 ---
 
