@@ -49,7 +49,7 @@ An example of a part of the output:
 
 ---
 
-If the automatic works as intendend here on Github the https://raw.githubusercontent.com/janko-js/variants_text_tree/main/latest/min-variant-tree.txt should be automatically updated once per day. The list of updates is in https://github.com/janko-js/variants_text_tree/commits/main
+If the automatic works as intendend here on Github the https://raw.githubusercontent.com/janko-js/variants_text_tree/main/latest/min-variant-tree.txt should be automatically updated once per day. The list of updates is in https://github.com/janko-js/variants_text_tree/commits/main/latest
 
 ---
 
