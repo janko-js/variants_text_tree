@@ -26,8 +26,9 @@ jobs:
       - name: Generate
         run: |
           mkdir -p latest
-          curl --silent --show-error --location ${json_tree} > data.json
-          perl pretty-tree.pl >latest/min-variant-tree.txt
+          curl --silent --show-error --location ${json_tree} >latest/data.json
+          perl pretty-tree.pl latest/data.json >latest/min-variant-tree.txt
+          rm latest/data.json
 
       - name: Commit and push changes
         run: |
