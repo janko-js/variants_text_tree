@@ -3,9 +3,7 @@
 A small Perl script to produce a minimalistic text tree of SARS-CoV-2 subvariants from a JSON file as seen in 
 https://github.com/MDU-PHL/pango-watch/blob/main/tree/data.json
 
-The output allows one to have a small text file to do a text search for some existing subvariant or alias.
-
----
+The output allows one to have a small text file to do a text search for some existing subvariant or alias:
 
 Searching a subvariant, if the searched text is found, that subvariant exists, and its context is seen.
 
@@ -51,11 +49,12 @@ An example of a part of the output:
 
 ---
 
-If the automatic works as intendend here on Github the latest/min-variant-tree.txt should be automatically updated once per day.
+If the automatic works as intendend here on Github the https://raw.githubusercontent.com/janko-js/variants_text_tree/main/latest/min-variant-tree.txt should be automatically updated once per day. The list of updates is in https://github.com/janko-js/variants_text_tree/commits/main
 
 ---
 
-Converting a newer version of the data.json file to a minimalistic text file, let's say called my-new-min-tree.txt (for those who aren't too familiar with command line or installing Perl please refer to other tutorials):
+Converting a newer version of the data.json file to a minimalistic text file on your own computer with your own json file:
+Let's say your goal is to produce a new minimal text tree and call it my-new-min-tree.txt: (for those not too familiar with command line or having Perl on your platform please refer to other tutorials):
 
 - Perl has to be installed on your system.
 - Keep pretty-tree.pl in some folder, put the newer data.json in the same folder
