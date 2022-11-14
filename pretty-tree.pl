@@ -1,15 +1,18 @@
 #!/usr/bin/perl
 use JSON;
 
-my $fn =
-    "data.json";
-    #$ARGV[0];
+my $fn = "data.json";
+
+if ( scalar( @ARGV ) > 0 ) {
+    $fn = $ARGV[0];
+}
 
 my $ALIAS = 'compressed_name';
 my $NAME = 'name';
 my $CHILDREN = 'children';
 
-open( $f, $fn );
+
+open( $f, $fn ) or die "Fail: not found: $fn\n";
 my $s;
 {
     $/ = undef;
