@@ -32,7 +32,7 @@ jobs:
       - name: Commit and push changes
         run: |
           git config --global user.name "janko-js"
-          git config --global user.email ""
+          git config --global user.email "116484385+janko-js@users.noreply.github.com"
           if [ "$(git status --porcelain | head -1)" ]
           then
             git add -A
