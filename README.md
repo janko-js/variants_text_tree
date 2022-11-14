@@ -1,5 +1,7 @@
 # variants_text_tree
 
+[![.github/workflows/run.yml](https://github.com/janko-js/variants_text_tree/actions/workflows/run.yml/badge.svg)](https://github.com/janko-js/variants_text_tree/actions/workflows/run.yml)
+
 A small Perl script to produce a minimalistic text tree of SARS-CoV-2 subvariants from a JSON file as seen in 
 https://github.com/MDU-PHL/pango-watch/blob/main/tree/data.json
 
