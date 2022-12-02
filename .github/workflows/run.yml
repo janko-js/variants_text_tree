@@ -26,7 +26,7 @@ jobs:
       - name: Generate
         run: |
           mkdir -p latest
-          curl --silent --show-error --location ${json_tree} >latest/data.json
+          curl  --fail --silent --show-error --location ${json_tree} >latest/data.json
           perl pretty-tree.pl latest/data.json >latest/min-variant-tree.txt
           rm latest/data.json
           grep -c "BA\.5\.2" latest/min-variant-tree.txt
