@@ -17,7 +17,9 @@ jobs:
       - name: Set variables
         run: |
           echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
-          echo "json_tree=https://raw.githubusercontent.com/MDU-PHL/pango-watch/main/tree/data.json" >> $GITHUB_ENV
+          echo "TREE_REMOTE=https://raw.githubusercontent.com/MDU-PHL/pango-watch/main/tree/data.json" >> $GITHUB_ENV
+          echo "TREE=latest/data.json" >> $GITHUB_ENV
+          echo "RESULT=latest/min-variant-tree.txt" >> $GITHUB_ENV
         shell: bash
 
       - name: Checkout
@@ -25,19 +27,29 @@ jobs:
 
       - name: Generate
         run: |
+          echo Fetching remote tree from $TREE_REMOTE to $TREE and processing it to $RESULT 
           mkdir -p latest
-          curl  --fail --silent --show-error --location ${json_tree} >latest/data.json
-          perl pretty-tree.pl latest/data.json >latest/min-variant-tree.txt
-          rm latest/data.json
-          grep -c "BA\.5\.2" latest/min-variant-tree.txt
+          curl  --fail --silent --show-error --location $TREE_REMOTE >$TREE
+          perl pretty-tree.pl $TREE >$RESULT
+          rm $TREE
+          grep -c "BA\.5\.2" $RESULT
+        shell: bash
 
       - name: Commit and push changes
         run: |
+          echo If $RESULT is changed push
           git config --global user.name "janko-js"
           git config --global user.email "116484385+janko-js@users.noreply.github.com"
-          if [ "$(git status --porcelain | head -1)" ]
+          if [ "$(git status --porcelain $RESULT | head -1)" ]
           then
-            git add -A
+            echo Adding $RESULT
+            git add $RESULT
+            echo Commiting
             git commit -m "update $TAG_NAME"
+            echo Pushing
             git push
+          else
+            echo Nothing to do
+            true
           fi
+        shell: bash
