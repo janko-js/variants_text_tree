@@ -56,12 +56,17 @@ If the automatic works as intendend here on Github the https://raw.githubusercon
 ---
 
 Converting a newer version of the data.json file to a minimalistic text file on your own computer with your own json file:
-Let's say your goal is to produce a new minimal text tree and call it my-new-min-tree.txt: (for those not too familiar with command line or having Perl on your platform please refer to other tutorials):
+Let's say your goal is to produce a new minimal text tree and call it my-new-min-tree.txt: (for those not too familiar with command line or having Perl and required modules on your platform please refer to other tutorials):
 
-- Perl has to be installed on your system.
+- Perl has to be installed on your system. Also a Perl module JSON.
 - Keep pretty-tree.pl in some folder, put the newer data.json in the same folder
 - Open the command prompt in that folder and type
 
-<code>pretty-tree.pl >my-new-min-tree.txt</code>
-    
+<code>perl pretty-tree.pl >my-new-min-tree.txt</code>
+
 - The new minimalistic text tree should then appear as a new content of my-new-min-tree.txt
+
+- To convert a tree json input which has some other name or location specify it as a parameter:
+
+<code>perl pretty-tree.pl some-other-my-data.json >my-other-new-min-tree.txt</code>
+    
