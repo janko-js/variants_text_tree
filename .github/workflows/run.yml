@@ -18,24 +18,24 @@ jobs:
         run: |
           echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
           echo "TREE_REMOTE=https://raw.githubusercontent.com/MDU-PHL/pango-watch/main/tree/data.json" >> $GITHUB_ENV
-          echo "TREE=latest/data.json" >> $GITHUB_ENV
+          echo "INPUT=latest/data.json" >> $GITHUB_ENV
           echo "RESULT=latest/min-variant-tree.txt" >> $GITHUB_ENV
         shell: bash
 
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Generate
+      - name: Fetch remote tree, generate result
         run: |
-          echo Fetching remote tree from $TREE_REMOTE to $TREE and processing it to $RESULT 
+          echo Fetching remote tree from $TREE_REMOTE to $INPUT then processing it to $RESULT 
           mkdir -p latest
-          curl  --fail --silent --show-error --location $TREE_REMOTE >$TREE
-          perl pretty-tree.pl $TREE >$RESULT
-          rm $TREE
+          curl  --fail --silent --show-error --location $TREE_REMOTE >$INPUT
+          perl pretty-tree.pl $INPUT >$RESULT
+          rm $INPUT
           grep -c "BA\.5\.2" $RESULT
         shell: bash
 
-      - name: Commit and push changes
+      - name: If result differs, push it
         run: |
           echo If $RESULT is changed push
           git config --global user.name "janko-js"
