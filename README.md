@@ -1,6 +1,6 @@
 # variants_text_tree
 
-[![.github/workflows/run.yml](https://github.com/janko-js/variants_text_tree/actions/workflows/run.yml/badge.svg)](https://github.com/janko-js/variants_text_tree/tree/main/latest)
+[![.github/workflows/run.yml](actions/workflows/run.yml/badge.svg)](variants_text_tree/tree/main/latest)
 
 A small Perl script to produce a minimalistic text tree of SARS-CoV-2 subvariants from a JSON file as seen in 
 https://github.com/MDU-PHL/pango-watch/blob/main/tree/data.json
@@ -51,7 +51,7 @@ An example of a part of the output:
 
 ---
 
-If the automatic works as intendend here on Github the https://raw.githubusercontent.com/janko-js/variants_text_tree/main/latest/min-variant-tree.txt should be automatically updated once per day. The list of updates is in https://github.com/janko-js/variants_text_tree/commits/main/latest
+(If the automatic works as intendend here on Github the [main/latest/min-variant-tree.txt](main/latest/min-variant-tree.txt) should be automatically updated once per day. The list of updates is in [commits/main/latest](commits/main/latest)
 
 ---
 
