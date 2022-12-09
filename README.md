@@ -51,7 +51,7 @@ An example of a part of the output:
 
 ---
 
-(If the automatic works as intendend here on Github the [main/latest/min-variant-tree.txt](main/latest/min-variant-tree.txt) should be automatically updated once per day. The list of updates is in [commits/main/latest](commits/main/latest)
+(If the automatic works as intendend here on Github the [latest/min-variant-tree.txt](../../blob/main/latest/min-variant-tree.txt) should be automatically updated once per day. The list of updates is in [latest](../../commits/main/latest)
 
 ---
 
