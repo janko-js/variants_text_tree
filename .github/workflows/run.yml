@@ -41,6 +41,10 @@ jobs:
            SC_EMAIL: ${{ secrets.PROJECT_SC_EMAIL }}
         run: |
           echo If $RESULT is changed push
+          if [ -z "$SC_USER" ]
+          else
+            echo missing SC_USER
+          fi
           git config --global user.name "$SC_USER"
           git config --global user.email "$SC_EMAIL"
           if [ "$(git status --porcelain $RESULT | head -1)" ]
