@@ -37,19 +37,10 @@ jobs:
 
       - name: If result differs, push it
         env:
-           SC_USER: ${{ github.repository_owner }}
            SC_EMAIL: ${{ secrets.PROJECT_SC_EMAIL }}
         run: |
           echo If $RESULT is changed push
-          if [ -z "$SC_USER" ]
-          then
-            echo missing SC_USER
-          fi
-          if [ -z "$GITHUB_REPOSITORY_OWNER" ]
-          then
-            echo missing GITHUB_REPOSITORY_OWNER
-          fi          
-          git config --global user.name "$SC_USER"
+          git config --global user.name "$GITHUB_REPOSITORY_OWNER"
           git config --global user.email "$SC_EMAIL"
           if [ "$(git status --porcelain $RESULT | head -1)" ]
           then
@@ -59,8 +50,9 @@ jobs:
             git commit -m "update $TAG_NAME"
             echo Pushing
             git push
+            echo Done.
           else
-            echo Nothing to do
+            echo Nothing to do.
             true
           fi
         shell: bash
