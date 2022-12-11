@@ -36,8 +36,8 @@ jobs:
         shell: bash
 
       - name: If result differs, push it
-        env: # Or as an environment variable
-           SC_USER: ${{ env.GITHUB_REPOSITORY_OWNER }}
+        env:
+           SC_USER: ${{ github.repository_owner }}
            SC_EMAIL: ${{ secrets.PROJECT_SC_EMAIL }}
         run: |
           echo If $RESULT is changed push
