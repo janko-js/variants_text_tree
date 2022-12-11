@@ -45,6 +45,10 @@ jobs:
           then
             echo missing SC_USER
           fi
+          if [ -z "$GITHUB_REPOSITORY_OWNER" ]
+          then
+            echo missing GITHUB_REPOSITORY_OWNER
+          fi          
           git config --global user.name "$SC_USER"
           git config --global user.email "$SC_EMAIL"
           if [ "$(git status --porcelain $RESULT | head -1)" ]
