@@ -42,7 +42,7 @@ jobs:
         run: |
           echo If $RESULT is changed push
           if [ -z "$SC_USER" ]
-          else
+          then
             echo missing SC_USER
           fi
           git config --global user.name "$SC_USER"
