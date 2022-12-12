@@ -11,7 +11,7 @@ on:
 
 jobs:
   generate-latest-min-tree:
-    runs-on: ubuntu-latest
+    runs-on: Ubuntu-22.04
 
     steps:
       - name: Set variables
