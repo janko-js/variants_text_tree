@@ -37,15 +37,11 @@ jobs:
 
       - name: If result differs, push it
         env:
-           SC_EMAIL: ${{ secrets.PROJECT_SC_EMAIL }}
+           OWNER_NOREPLY_PREFIX: 116484385
         run: |
           echo If $RESULT is changed push
           git config --global user.name "$GITHUB_REPOSITORY_OWNER"
-          git config --global user.email "$SC_EMAIL"
-          if [ -z "$SC_EMAIL" ]
-          then
-            echo missing SC_EMAIL
-          fi
+          git config --global user.email "$OWNER_NOREPLY_PREFIX+$GITHUB_REPOSITORY_OWNER@users.noreply.github.com"
           if [ "$(git status --porcelain $RESULT | head -1)" ]
           then
             echo Adding $RESULT
