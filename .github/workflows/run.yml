@@ -42,6 +42,10 @@ jobs:
           echo If $RESULT is changed push
           git config --global user.name "$GITHUB_REPOSITORY_OWNER"
           git config --global user.email "$SC_EMAIL"
+          if [ -z "$SC_EMAIL" ]
+          then
+            echo missing SC_EMAIL
+          fi
           if [ "$(git status --porcelain $RESULT | head -1)" ]
           then
             echo Adding $RESULT
