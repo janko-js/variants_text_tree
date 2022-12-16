@@ -36,10 +36,12 @@ jobs:
         shell: bash
 
       - name: If result differs, push it
+        env:
+          REPO_OWNER_ID: ${{github.repository_owner_id}}
         run: |
           echo If $RESULT is changed push
           git config --global user.name "$GITHUB_REPOSITORY_OWNER"
-          git config --global user.email "${{github.repository_owner_id}}+$GITHUB_REPOSITORY_OWNER@users.noreply.github.com"
+          git config --global user.email "$REPO_OWNER_ID+$GITHUB_REPOSITORY_OWNER@users.noreply.github.com"
           if [ "$(git status --porcelain $RESULT | head -1)" ]
           then
             echo Adding $RESULT
