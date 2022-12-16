@@ -42,8 +42,10 @@ jobs:
           if [ "$(git status --porcelain $RESULT | head -1)" ]
           then
             APIURL="https://api.github.com/users/$GITHUB_REPOSITORY_OWNER"
-            OWNER_ID=$(perl -MJSON -E 'print from_json(`curl --silent $ARGV[0]`)->{$ARGV[1]}' $APIURL id)
-            git config --global user.email "$OWNER_ID+$GITHUB_REPOSITORY_OWNER@users.noreply.github.com"
+            OWNER_ID=$(perl -MJSON -E 'print from_json(`curl --silent $ARGV[0]`)->{$ARGV[1]}' $APIURL id ||true)
+            if [ -n "$OWNER_ID" ]; then
+                git config --global user.email "$OWNER_ID+$GITHUB_REPOSITORY_OWNER@users.noreply.github.com"
+            fi
             echo Adding $RESULT
             git add $RESULT
             echo Commiting
