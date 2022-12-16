@@ -33,21 +33,20 @@ jobs:
           perl pretty-tree.pl $INPUT >$RESULT
           rm $INPUT
           grep -c "BA\.5\.2" $RESULT
-          URL="https://api.github.com/users/$GITHUB_REPOSITORY_OWNER"
-          id=$(perl -MJSON -E '$t=$ARGV[0];print substr(from_json(`curl --silent $t`)->{$ARGV[1]},0,3)' $URL id)
-          echo $id
+          APIURL="https://api.github.com/users/$GITHUB_REPOSITORY_OWNER"
+          OWNER_ID=$(perl -MJSON -E 'print substr(from_json(`curl --silent $ARGV[0]`)->{$ARGV[1]},0,3)' $APIURL id)
+          echo $OWNER_ID
         shell: bash
 
       - name: If result differs, push it
-        env:
-           OWNER_NOREPLY_PREFIX: 116484385
         run: |
           echo If $RESULT is changed push
-          
           git config --global user.name "$GITHUB_REPOSITORY_OWNER"
-          git config --global user.email "$OWNER_NOREPLY_PREFIX+$GITHUB_REPOSITORY_OWNER@users.noreply.github.com"
           if [ "$(git status --porcelain $RESULT | head -1)" ]
           then
+            APIURL="https://api.github.com/users/$GITHUB_REPOSITORY_OWNER"
+            OWNER_ID=$(perl -MJSON -E 'print from_json(`curl --silent $ARGV[0]`)->{$ARGV[1]}' $APIURL id)
+            git config --global user.email "$OWNER_ID+$GITHUB_REPOSITORY_OWNER@users.noreply.github.com"
             echo Adding $RESULT
             git add $RESULT
             echo Commiting
