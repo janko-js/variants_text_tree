@@ -39,12 +39,9 @@ jobs:
         run: |
           echo If $RESULT is changed push
           git config --global user.name "$GITHUB_REPOSITORY_OWNER"
+          git config --global user.email "${{github.repository_owner_id}}+$GITHUB_REPOSITORY_OWNER@users.noreply.github.com"
           if [ "$(git status --porcelain $RESULT | head -1)" ]
           then
-            OWNER_ID=$(curl --silent https://api.github.com/users/$GITHUB_REPOSITORY_OWNER | jq -r .id || true)
-            if [ -n "$OWNER_ID" ]; then
-                git config --global user.email "$OWNER_ID+$GITHUB_REPOSITORY_OWNER@users.noreply.github.com"
-            fi
             echo Adding $RESULT
             git add $RESULT
             echo Commiting
