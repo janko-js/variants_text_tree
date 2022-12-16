@@ -41,8 +41,7 @@ jobs:
           git config --global user.name "$GITHUB_REPOSITORY_OWNER"
           if [ "$(git status --porcelain $RESULT | head -1)" ]
           then
-            APIURL="https://api.github.com/users/$GITHUB_REPOSITORY_OWNER"
-            OWNER_ID=$(perl -MJSON -E 'print from_json(`curl --silent $ARGV[0]`)->{$ARGV[1]}' $APIURL id ||true)
+            OWNER_ID=$(curl --silent https://api.github.com/users/$GITHUB_REPOSITORY_OWNER | jq -r .id || true)
             if [ -n "$OWNER_ID" ]; then
                 git config --global user.email "$OWNER_ID+$GITHUB_REPOSITORY_OWNER@users.noreply.github.com"
             fi
