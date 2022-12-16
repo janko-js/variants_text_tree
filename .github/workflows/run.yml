@@ -33,6 +33,8 @@ jobs:
           perl pretty-tree.pl $INPUT >$RESULT
           rm $INPUT
           grep -c "BA\.5\.2" $RESULT
+          id=$(perl -MLWP::Simple -MJSON -E 'print substr(from_json(get($ARGV[0]))->{$ARGV[1]},0,3)' $URL id)
+          echo $id
         shell: bash
 
       - name: If result differs, push it
@@ -40,6 +42,7 @@ jobs:
            OWNER_NOREPLY_PREFIX: 116484385
         run: |
           echo If $RESULT is changed push
+          
           git config --global user.name "$GITHUB_REPOSITORY_OWNER"
           git config --global user.email "$OWNER_NOREPLY_PREFIX+$GITHUB_REPOSITORY_OWNER@users.noreply.github.com"
           if [ "$(git status --porcelain $RESULT | head -1)" ]
