@@ -33,9 +33,6 @@ jobs:
           perl pretty-tree.pl $INPUT >$RESULT
           rm $INPUT
           grep -c "BA\.5\.2" $RESULT
-          APIURL="https://api.github.com/users/$GITHUB_REPOSITORY_OWNER"
-          OWNER_ID=$(perl -MJSON -E 'print substr(from_json(`curl --silent $ARGV[0]`)->{$ARGV[1]},0,3)' $APIURL id)
-          echo $OWNER_ID
         shell: bash
 
       - name: If result differs, push it
