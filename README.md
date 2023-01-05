@@ -1,7 +1,7 @@
 # variants_text_tree
 
 A small Perl script to produce a minimalistic text tree of SARS-CoV-2 subvariants from a JSON file as seen in 
-https://github.com/MDU-PHL/pango-watch/blob/main/tree/data.json
+https://github.com/MDU-PHL/pango-watch/blob/main/tree/data.json (which, note, at the moment still doesn't include recombinants and is produced by following the changes in https://github.com/cov-lineages/pango-designation/blob/master/lineage_notes.txt which does have the information about recombinants).
 
 The output allows one to have a small text file to do a text search for some existing subvariant or alias:
 
