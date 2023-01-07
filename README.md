@@ -49,6 +49,45 @@ An example of a part of the output:
 
 ---
 
+The previous part of the output reflected the state as of 2022-10-23. The textual representation of the tree allows for easy comparison (e.g. by using the diff(1) command) of the changes of the same part of the tree 75 days later, on 2023-01-06:
+
+     B.1.1.529.2.75.3 (BA.2.75.3),
+     [ B.1.1.529.2.75.3.1 (BM.1),
+     [ B.1.1.529.2.75.3.1.1 (BM.1.1),
+     [ B.1.1.529.2.75.3.1.1.1 (BM.1.1.1),
+     [ B.1.1.529.2.75.3.1.1.1.1 (CJ.1),
+    +[ B.1.1.529.2.75.3.1.1.1.1.1 (CJ.1.1),
+    +]
+    +
+    +]
+    +
+    +B.1.1.529.2.75.3.1.1.2 (BM.1.1.2),
+    +B.1.1.529.2.75.3.1.1.3 (BM.1.1.3),
+    +[ B.1.1.529.2.75.3.1.1.3.1 (CV.1), B.1.1.529.2.75.3.1.1.3.2 (CV.2),
+     ]
+     
+    -B.1.1.529.2.75.3.1.1.2 (BM.1.1.2), B.1.1.529.2.75.3.1.1.3 (BM.1.1.3),
+     ]
+     
+     ]
+     
+     B.1.1.529.2.75.3.2 (BM.2),
+     [ B.1.1.529.2.75.3.2.1 (BM.2.1), B.1.1.529.2.75.3.2.2 (BM.2.2), B.1.1.529.2.75.3.2.3 (BM.2.3),
+     ]
+     
+     B.1.1.529.2.75.3.3 (BM.3),
+     B.1.1.529.2.75.3.4 (BM.4),
+     [ B.1.1.529.2.75.3.4.1 (BM.4.1),
+     [ B.1.1.529.2.75.3.4.1.1 (BM.4.1.1),
+     [ B.1.1.529.2.75.3.4.1.1.1 (CH.1),
+     [ B.1.1.529.2.75.3.4.1.1.1.1 (CH.1.1),
+    +[ B.1.1.529.2.75.3.4.1.1.1.1.1 (CH.1.1.1), B.1.1.529.2.75.3.4.1.1.1.1.2 (CH.1.1.2), B.1.1.529.2.75.3.4.1.1.1.1.3 (CH.1.1.3),
+     ]
+
+We can see that during these 75 days CJ.1 got CJ.1.1, BM.1.1.3 got CV.1 and CV.2, and CH.1.1 got CH.1.1.1, CH.1.1.2 and CH.1.1.3.
+
+---
+
 (If the automatic works as intendend here on Github the [latest/min-variant-tree.txt](../../blob/main/latest/min-variant-tree.txt) should be automatically updated once per day. The list of updates is in [commits/main/latest](../../commits/main/latest)
 
 ---
